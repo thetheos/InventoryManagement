@@ -1,8 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-backend/node_modules
-frontend/nodes_modules
+node_modules
+nodes_modules/*
 /.pnp
 .pnp.js
 
@@ -25,3 +25,4 @@ yarn-error.log*
 
 /backend/public/*
 package-lock.json
+*/package-lock.json
