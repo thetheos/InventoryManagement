@@ -23,11 +23,28 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+function RenderButton(props) {
+  if(props.disabled) {
+    return (
+      <Button disabled style={{ background: '#dddddd', color: '#fff' }}>
+        Consulter
+      </Button>
+    )
+  }else{
+    return (
+      <Button style={{ background: '#e79908', color: '#fff' }}>
+        Consulter
+      </Button>
+    )
+  }
+}
+
 export const InventoryCard = React.memo(function MusicCard(props) {
   const styles = useStyles();
   const mediaStyles = useFourThreeCardMediaStyles();
   const textCardContentStyles = useN04TextInfoContentStyles();
   const shadowStyles = useOverShadowStyles({ inactive: true });
+  const disabled = props.disabled;
   console.log(props.image)
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
@@ -45,9 +62,7 @@ export const InventoryCard = React.memo(function MusicCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained " style={{ background: '#e79908', color: '#fff' }}>
-          Consulter
-        </Button>
+        <RenderButton disabled={props.disabled}/>
         <Typography>
           {props.stock} en stocks
         </Typography>

@@ -22,6 +22,7 @@ function InventoryList() {
 
   const [articleList, setArticleList] = useState(null);
 
+
   const domain = "http://localhost:1337"
   useEffect(() => {    
     axios.get(domain+'/inventories').then(response => {
@@ -43,10 +44,10 @@ function InventoryList() {
                     </Grid>)
           })}
       </Grid>
-        <Link to="/inventory/add">
-          <Fab style={style} aria-label="add">
-        <AddIcon />
-      </Fab>
+      <Link to="/inventory/add">
+        <Fab style={style} aria-label="add">
+          <AddIcon />
+        </Fab>
       </Link>
       
     </div>
