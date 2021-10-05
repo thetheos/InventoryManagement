@@ -38,11 +38,16 @@ function InventoryList() {
 
       <Grid container spacing={3}>
           {(articleList || []).map( (article) => {
-            
+            if(article.image[0]){
             return (<Grid item md={3} xs={12} sm={6}> 
-                      <InventoryCard title={article.title} description={article.description} stock={article.stock} image={domain + article.image[0].url}/>
-                    </Grid>)
-          })}
+                      <InventoryCard disabled={false} title={article.title} description={article.description} stock={article.stock} image={domain + article.image[0].url}/>
+                    </Grid>)}
+            else{
+              return (<Grid item md={3} xs={12} sm={6}> 
+                <InventoryCard title={article.title} description={article.description} stock={article.stock} />
+              </Grid>)}
+            }
+          )}
       </Grid>
       <Link to="/inventory/add">
         <Fab style={style} aria-label="add">

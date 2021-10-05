@@ -1,6 +1,8 @@
 import Drawer from './components/drawer'
 import InventoryList from './components/inventory/InventoryList'
 import InventoryAdd from './components/inventory/InventoryAdd'
+import ClientList from './components/Clients/ClientList'
+import ClientAdd from './components/Clients/ClientAdd'
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,7 +24,12 @@ function App() {
     <Route path="/inventory/:id">
       <Drawer title="Louvain-li-Nux inventaire" content={<InventoryList/>} />
     </Route>
-
+    <Route path="/clients/add">
+      <Drawer title="Louvain-li-Nux clients" content={<ClientAdd/>}/>
+    </Route>
+    <Route path="/clients">
+      <Drawer title="Louvain-li-Nux clients" content={<ClientList/>}/>
+    </Route>
   </Switch>
   </Router>
   )

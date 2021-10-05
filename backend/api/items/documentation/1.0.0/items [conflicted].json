@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/inventories": {
+    "/items": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the items's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve items document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Inventory"
+                    "$ref": "#/components/schemas/Items"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new items record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve items document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Items"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInventory"
+                "$ref": "#/components/schemas/NewItems"
               }
             }
           }
         }
       }
     },
-    "/inventories/count": {
+    "/items/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of items documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve items document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "parameters": []
       }
     },
-    "/inventories/{id}": {
+    "/items/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one items record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve items document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Items"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single items record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve items document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Items"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInventory"
+                "$ref": "#/components/schemas/NewItems"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single items record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single items based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Items"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Inventory": {
+      "Items": {
         "required": [
           "id"
         ],
@@ -522,116 +522,100 @@
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           },
-          "image": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "inventory": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "image": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "stock": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
-          "stock": {
-            "type": "integer"
+          "barcode": {
+            "type": "string"
           },
-          "items": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "inventory": {
-                  "type": "string"
-                },
-                "barcode": {
-                  "type": "string"
-                },
-                "rental": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "rental": {
+            "required": [
+              "id",
+              "location_start",
+              "expected_location_end",
+              "deposit_amount",
+              "total_price",
+              "transaction_completed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "location_start": {
+                "type": "string"
+              },
+              "expected_location_end": {
+                "type": "string"
+              },
+              "location_end": {
+                "type": "string"
+              },
+              "deposit_amount": {
+                "type": "number"
+              },
+              "total_price": {
+                "type": "number"
+              },
+              "transaction_completed": {
+                "type": "boolean"
+              },
+              "transaction_id": {
+                "type": "uid"
+              },
+              "items_id_list": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -641,22 +625,19 @@
           }
         }
       },
-      "NewInventory": {
+      "NewItems": {
         "properties": {
-          "title": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           },
-          "stock": {
-            "type": "integer"
+          "inventory": {
+            "type": "string"
           },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "barcode": {
+            "type": "string"
+          },
+          "rental": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -674,7 +655,7 @@
   },
   "tags": [
     {
-      "name": "Inventory"
+      "name": "Items"
     }
   ]
 }
