@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/inventories": {
+    "/clients": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the clients's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve clients document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Inventory"
+                    "$ref": "#/components/schemas/Clients"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new clients record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve clients document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Clients"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInventory"
+                "$ref": "#/components/schemas/NewClients"
               }
             }
           }
         }
       }
     },
-    "/inventories/count": {
+    "/clients/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of clients documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve clients document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "parameters": []
       }
     },
-    "/inventories/{id}": {
+    "/clients/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one clients record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve clients document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Clients"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single clients record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve clients document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Inventory"
+                  "$ref": "#/components/schemas/Clients"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewInventory"
+                "$ref": "#/components/schemas/NewClients"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single clients record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single clients based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Inventory"
+          "Clients"
         ],
         "parameters": [
           {
@@ -514,124 +514,76 @@
   },
   "components": {
     "schemas": {
-      "Inventory": {
+      "Clients": {
         "required": [
-          "id"
+          "id",
+          "client_name",
+          "client_surname"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
+          "client_name": {
             "type": "string"
           },
-          "description": {
+          "client_surname": {
             "type": "string"
           },
-          "image": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "client_phone": {
+            "type": "string"
+          },
+          "client_mail": {
+            "type": "string"
+          },
+          "rental_client": {
+            "required": [
+              "id",
+              "location_start",
+              "expected_location_end",
+              "deposit_amount",
+              "total_price",
+              "transaction_completed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "location_start": {
+                "type": "string"
+              },
+              "expected_location_end": {
+                "type": "string"
+              },
+              "location_end": {
+                "type": "string"
+              },
+              "deposit_amount": {
+                "type": "number"
+              },
+              "total_price": {
+                "type": "number"
+              },
+              "transaction_completed": {
+                "type": "boolean"
+              },
+              "items_id_list": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "stock": {
-            "type": "integer"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "inventory": {
-                  "type": "string"
-                },
-                "barcode": {
-                  "type": "string"
-                },
-                "rental": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+              },
+              "client": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -641,22 +593,26 @@
           }
         }
       },
-      "NewInventory": {
+      "NewClients": {
+        "required": [
+          "client_name",
+          "client_surname"
+        ],
         "properties": {
-          "title": {
+          "client_name": {
             "type": "string"
           },
-          "description": {
+          "client_surname": {
             "type": "string"
           },
-          "stock": {
-            "type": "integer"
+          "client_phone": {
+            "type": "string"
           },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "client_mail": {
+            "type": "string"
+          },
+          "rental_client": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -674,7 +630,7 @@
   },
   "tags": [
     {
-      "name": "Inventory"
+      "name": "Clients"
     }
   ]
 }
