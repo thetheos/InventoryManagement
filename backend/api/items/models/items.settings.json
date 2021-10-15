@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "name": "Items",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "inventory": {
+      "via": "items",
+      "model": "inventory"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "rental": {
+      "via": "items_id_list",
+      "model": "rentals"
+    }
+  }
+}

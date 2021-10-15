@@ -18,6 +18,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import StorageIcon from '@material-ui/icons/Storage';
 import PersonIcon from '@material-ui/icons/Person';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
+import { Link } from "react-router-dom";
+
 
 const drawerWidth = 240;
 
@@ -143,9 +145,10 @@ export default function MiniDrawer(props) {
         </div>
         <Divider />
         <List>
-            <ListItem button key="inventory">
+            <ListItem button key="inventory" component={Link} to="/">
               <ListItemIcon><StorageIcon/></ListItemIcon>
               <ListItemText primary="Inventaire" />
+
             </ListItem>
 
             <ListItem button key="location">
@@ -153,7 +156,7 @@ export default function MiniDrawer(props) {
               <ListItemText primary="Location"/>
             </ListItem>
 
-            <ListItem button key="users">
+            <ListItem button key="users" component={Link} to="/clients">
               <ListItemIcon><PersonIcon/></ListItemIcon>
               <ListItemText primary="Client" />
             </ListItem>

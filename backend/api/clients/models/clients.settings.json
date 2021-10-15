@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "name": "clients",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client_name": {
+      "type": "string",
+      "required": true
+    },
+    "client_surname": {
+      "type": "string",
+      "required": true
+    },
+    "client_phone": {
+      "type": "string"
+    },
+    "client_mail": {
+      "type": "email"
+    },
+    "rental_client": {
+      "via": "client",
+      "model": "rentals"
+    }
+  }
+}

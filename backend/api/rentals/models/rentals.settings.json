@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rentals",
+  "info": {
+    "name": "rentals",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location_start": {
+      "type": "datetime",
+      "required": true
+    },
+    "expected_location_end": {
+      "type": "datetime",
+      "required": true
+    },
+    "location_end": {
+      "type": "datetime"
+    },
+    "deposit_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "total_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "transaction_completed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "items_id_list": {
+      "collection": "items",
+      "via": "rental"
+    },
+    "client": {
+      "via": "rental_client",
+      "model": "clients"
+    }
+  }
+}
