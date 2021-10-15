@@ -149,7 +149,7 @@ function InventoryAdd(props) {
 
         </Grid>
 
-        <Link onClick={upload}>
+        <Link onClick={upload} to="/">
             <Fab style={saveButton} aria-label="add">
                 <SaveIcon />
             </Fab>

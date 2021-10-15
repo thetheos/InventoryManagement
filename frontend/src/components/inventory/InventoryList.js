@@ -26,7 +26,7 @@ function InventoryList() {
   const domain = "http://localhost:1337"
   useEffect(() => {    
     axios.get(domain+'/inventories').then(response => {
-      console.log(response);
+
       const myInventory = response.data
       setArticleList(myInventory)
      
@@ -38,9 +38,9 @@ function InventoryList() {
 
       <Grid container spacing={3}>
           {(articleList || []).map( (article) => {
-            
-            return (<Grid item md={3} xs={12} sm={6}> 
-                      <InventoryCard title={article.title} description={article.description} stock={article.stock} image={domain + article.image[0].url}/>
+            console.log(article)
+            return (<Grid item md={3} xs={12} sm={6}>
+                      <InventoryCard title={article.title} description={article.description} stock={article.stock} image={article.image.length>0 ? domain + article.image[0].url : ''}/>
                     </Grid>)
           })}
       </Grid>
