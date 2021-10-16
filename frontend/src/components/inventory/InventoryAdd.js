@@ -53,6 +53,7 @@ function InventoryAdd(props) {
     const [articleRows, setArticleRows] = useState([]);
 
     useEffect(() => {
+        console.log(articleRows)
         setNumberStock(articleRows.length)
     }, [articleRows])
 
@@ -76,21 +77,41 @@ function InventoryAdd(props) {
             "description": description,
             "stock": numberStock,
         }
+        
         let formData = new FormData();
         formData.append("files.image", picture);
         formData.append("data", JSON.stringify(postData));
+        // Upload the product
         axios({
           method: "post",
           url: "http://localhost:1337/inventories",
           data: formData
-        })
-          .then(({ data }) => {
+        }).then(({ data }) => {
             console.log("Succesfully uploaded: ", JSON.stringify(data));
+            // Upload items associated to the product
+            articleRows.forEach((item) => {
+                const postData = {
+                    "description": item.comment,
+                    "inventory": data.id,
+                    "barcode": item.barcode,
+                }
+                axios({
+                    method: "post",
+                    url: "http://localhost:1337/items",
+                    data: postData
+                  })
+            })
+
+            
           })
           .catch((error) => {
             console.log("Error: ", error.message);
+            return;
           });
       };
+
+
+
 
     return (
         <div>

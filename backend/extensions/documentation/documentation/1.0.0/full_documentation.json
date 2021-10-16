@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/05/2021 12:19:43 AM"
+    "x-generation-date": "10/16/2021 9:06:03 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5182,14 +5182,14 @@
               "transaction_completed": {
                 "type": "boolean"
               },
+              "transaction_id": {
+                "type": "uid"
+              },
               "items_id_list": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
-              },
-              "client": {
-                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -5198,6 +5198,9 @@
                 "type": "string"
               },
               "updated_by": {
+                "type": "string"
+              },
+              "client": {
                 "type": "string"
               }
             }
@@ -5269,6 +5272,9 @@
             "type": "boolean",
             "default": false
           },
+          "transaction_id": {
+            "type": "uid"
+          },
           "items_id_list": {
             "type": "array",
             "items": {
@@ -5302,6 +5308,10 @@
                 }
               }
             }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "client": {
             "required": [
@@ -5338,10 +5348,6 @@
                 "type": "string"
               }
             }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -5376,14 +5382,14 @@
             "type": "boolean",
             "default": false
           },
+          "transaction_id": {
+            "type": "uid"
+          },
           "items_id_list": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "client": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -5393,6 +5399,9 @@
             "type": "string"
           },
           "updated_by": {
+            "type": "string"
+          },
+          "client": {
             "type": "string"
           }
         }

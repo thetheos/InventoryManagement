@@ -19,13 +19,9 @@ const columns = [
 ];
 
 var init = [
-  {id: 1, barcode: '012102010201', comment: 'PC sous linux'},
-  {id: 2, barcode: '023102023101', comment: 'Sans OS'},
-  {id: 3, barcode: '023102023101', comment: 'Défectueux'}
-
 ];
 
-var id = 3
+var id = 0
   
 export default function ProductTable(props) {
     const rows = props.rows
@@ -45,6 +41,14 @@ export default function ProductTable(props) {
         if (e.key === 'Enter') {
             addRow();
         }
+    }
+
+    function editRow(values, event) {
+
+      const newRows = [...rows];
+      newRows[values.id-1][values.field] = values.value;
+      setRows(newRows);
+
     }
 
     useEffect( () => {
@@ -75,6 +79,7 @@ export default function ProductTable(props) {
             rowsPerPageOptions={[10]}
             checkboxSelection
             disableSelectionOnClick
+            onCellEditCommit={editRow}
         />
     </div>
   );
