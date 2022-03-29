@@ -1,6 +1,7 @@
 import Drawer from './components/drawer'
 import InventoryList from './components/inventory/InventoryList'
 import InventoryAdd from './components/inventory/InventoryAdd'
+import InventoryDetail from './components/inventory/InventoryDetail'
 import ClientList from './components/Clients/ClientList'
 import ClientAdd from './components/Clients/ClientAdd'
 import {
@@ -22,7 +23,7 @@ function App() {
       <Drawer title="Louvain-li-Nux inventaire" content={<InventoryAdd/>} />
     </Route>
     <Route path="/inventory/:id">
-      <Drawer title="Louvain-li-Nux inventaire" content={<InventoryList/>} />
+      <Drawer title="Louvain-li-Nux inventaire" content={<InventoryDetail/>} />
     </Route>
     <Route path="/clients/add">
       <Drawer title="Louvain-li-Nux clients" content={<ClientAdd/>}/>

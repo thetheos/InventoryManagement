@@ -10,6 +10,7 @@ import CardActions from '@material-ui/core/CardActions';
 import { useFourThreeCardMediaStyles } from '@mui-treasury/styles/cardMedia/fourThree';
 import { useN04TextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/n04';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,13 +27,13 @@ const useStyles = makeStyles(() => ({
 function RenderButton(props) {
   if(props.disabled) {
     return (
-      <Button disabled style={{ background: '#dddddd', color: '#fff' }}>
+      <Button component={Link} to={"/inventory/"+props.id} style={{ background: '#e79908', color: '#fff' }}>
         Consulter
       </Button>
     )
   }else{
     return (
-      <Button style={{ background: '#e79908', color: '#fff' }}>
+      <Button  style={{ background: '#dddddd', color: '#fff' }}>
         Consulter
       </Button>
     )
@@ -44,7 +45,6 @@ export const InventoryCard = React.memo(function MusicCard(props) {
   const mediaStyles = useFourThreeCardMediaStyles();
   const textCardContentStyles = useN04TextInfoContentStyles();
   const shadowStyles = useOverShadowStyles({ inactive: true });
-  const disabled = props.disabled;
   console.log(props.image)
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
@@ -62,7 +62,7 @@ export const InventoryCard = React.memo(function MusicCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <RenderButton disabled={props.disabled}/>
+        <RenderButton disabled={props.disabled} id={props.id}/>
         <Typography>
           {props.stock} en stocks
         </Typography>

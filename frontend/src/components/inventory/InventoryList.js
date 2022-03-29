@@ -40,7 +40,7 @@ function InventoryList() {
           {(articleList || []).map( (article) => {
             console.log(article)
             return (<Grid item md={3} xs={12} sm={6}>
-                      <InventoryCard title={article.title} description={article.description} stock={article.stock} image={article.image.length>0 ? domain + article.image[0].url : ''}/>
+                      <InventoryCard disabled={true} id={article.id} title={article.title} description={article.description} stock={article.stock} image={article.image.length>0 ? domain + article.image[0].url : ''}/>
                     </Grid>)
           })}
       </Grid>
